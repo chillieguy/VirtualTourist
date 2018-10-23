@@ -54,14 +54,22 @@
 		FF40DCD0217FC93B0022A73E /* VirtualTourist */ = {
 			isa = PBXGroup;
 			children = (
-				FF40DCD1217FC93B0022A73E /* AppDelegate.swift */,
 				FF40DCD3217FC93B0022A73E /* ViewController.swift */,
-				FF40DCD5217FC93B0022A73E /* Main.storyboard */,
-				FF40DCD8217FC93D0022A73E /* Assets.xcassets */,
-				FF40DCDA217FC93D0022A73E /* LaunchScreen.storyboard */,
+				FF40DCE3217FC9B30022A73E /* Resources */,
 				FF40DCDD217FC93D0022A73E /* Info.plist */,
 			);
 			path = VirtualTourist;
+			sourceTree = "<group>";
+		};
+		FF40DCE3217FC9B30022A73E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF40DCD1217FC93B0022A73E /* AppDelegate.swift */,
+				FF40DCD5217FC93B0022A73E /* Main.storyboard */,
+				FF40DCDA217FC93D0022A73E /* LaunchScreen.storyboard */,
+				FF40DCD8217FC93D0022A73E /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
