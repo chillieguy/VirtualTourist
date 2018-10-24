@@ -35,6 +35,9 @@ class MapVC: UIViewController {
         map.addAnnotation(annotation)
     }
     
+    @IBAction func editAction(_ sender: Any) {
+        performSegue(withIdentifier: "detailViewSegue", sender: nil)
+    }
     
 
 }
