@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MapVC
 //  VirtualTourist
 //
 //  Created by Chuck Underwood on 10/23/18.
@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import MapKit
 
-class ViewController: UIViewController {
-
+class MapVC: UIViewController {
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
     }
-
+    
+    
 
 }
 

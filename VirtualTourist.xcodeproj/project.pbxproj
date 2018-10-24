@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FF40DCD2217FC93B0022A73E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40DCD1217FC93B0022A73E /* AppDelegate.swift */; };
-		FF40DCD4217FC93B0022A73E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40DCD3217FC93B0022A73E /* ViewController.swift */; };
+		FF40DCD4217FC93B0022A73E /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40DCD3217FC93B0022A73E /* MapVC.swift */; };
 		FF40DCD7217FC93B0022A73E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF40DCD5217FC93B0022A73E /* Main.storyboard */; };
 		FF40DCD9217FC93D0022A73E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF40DCD8217FC93D0022A73E /* Assets.xcassets */; };
 		FF40DCDC217FC93D0022A73E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF40DCDA217FC93D0022A73E /* LaunchScreen.storyboard */; };
@@ -17,7 +17,7 @@
 /* Begin PBXFileReference section */
 		FF40DCCE217FC93B0022A73E /* VirtualTourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualTourist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF40DCD1217FC93B0022A73E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FF40DCD3217FC93B0022A73E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FF40DCD3217FC93B0022A73E /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		FF40DCD6217FC93B0022A73E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF40DCD8217FC93D0022A73E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF40DCDB217FC93D0022A73E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +38,7 @@
 		FF40DCC5217FC93B0022A73E = {
 			isa = PBXGroup;
 			children = (
+				FF40DCD5217FC93B0022A73E /* Main.storyboard */,
 				FF40DCD0217FC93B0022A73E /* VirtualTourist */,
 				FF40DCCF217FC93B0022A73E /* Products */,
 			);
@@ -54,7 +55,7 @@
 		FF40DCD0217FC93B0022A73E /* VirtualTourist */ = {
 			isa = PBXGroup;
 			children = (
-				FF40DCD3217FC93B0022A73E /* ViewController.swift */,
+				FF40DCD3217FC93B0022A73E /* MapVC.swift */,
 				FF40DCE3217FC9B30022A73E /* Resources */,
 				FF40DCDD217FC93D0022A73E /* Info.plist */,
 			);
@@ -65,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				FF40DCD1217FC93B0022A73E /* AppDelegate.swift */,
-				FF40DCD5217FC93B0022A73E /* Main.storyboard */,
 				FF40DCDA217FC93D0022A73E /* LaunchScreen.storyboard */,
 				FF40DCD8217FC93D0022A73E /* Assets.xcassets */,
 			);
@@ -143,7 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF40DCD4217FC93B0022A73E /* ViewController.swift in Sources */,
+				FF40DCD4217FC93B0022A73E /* MapVC.swift in Sources */,
 				FF40DCD2217FC93B0022A73E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
