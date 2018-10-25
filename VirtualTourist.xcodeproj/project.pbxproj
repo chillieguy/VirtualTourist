@@ -13,6 +13,7 @@
 		FF40DCD9217FC93D0022A73E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF40DCD8217FC93D0022A73E /* Assets.xcassets */; };
 		FF40DCDC217FC93D0022A73E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF40DCDA217FC93D0022A73E /* LaunchScreen.storyboard */; };
 		FF40DCE52180ABBB0022A73E /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40DCE42180ABBB0022A73E /* DetailVC.swift */; };
+		FF40DCE82181602C0022A73E /* VirtualTourist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF40DCE62181602C0022A73E /* VirtualTourist.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		FF40DCDB217FC93D0022A73E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF40DCDD217FC93D0022A73E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF40DCE42180ABBB0022A73E /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		FF40DCE72181602C0022A73E /* VirtualTourist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VirtualTourist.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		FF40DCC5217FC93B0022A73E = {
 			isa = PBXGroup;
 			children = (
+				FF40DCE62181602C0022A73E /* VirtualTourist.xcdatamodeld */,
 				FF40DCD5217FC93B0022A73E /* Main.storyboard */,
 				FF40DCD0217FC93B0022A73E /* VirtualTourist */,
 				FF40DCCF217FC93B0022A73E /* Products */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF40DCE82181602C0022A73E /* VirtualTourist.xcdatamodeld in Sources */,
 				FF40DCD4217FC93B0022A73E /* MapVC.swift in Sources */,
 				FF40DCD2217FC93B0022A73E /* AppDelegate.swift in Sources */,
 				FF40DCE52180ABBB0022A73E /* DetailVC.swift in Sources */,
@@ -348,6 +352,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FF40DCE62181602C0022A73E /* VirtualTourist.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FF40DCE72181602C0022A73E /* VirtualTourist.xcdatamodel */,
+			);
+			currentVersion = FF40DCE72181602C0022A73E /* VirtualTourist.xcdatamodel */;
+			path = VirtualTourist.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FF40DCC6217FC93B0022A73E /* Project object */;
 }
