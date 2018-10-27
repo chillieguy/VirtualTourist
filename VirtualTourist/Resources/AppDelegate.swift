@@ -12,10 +12,23 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    // Check if UserDefaults have been set by checking if app has been launched initially
+    
+    func checkIfFirstLaunch() {
+        if !UserDefaults.standard.bool(forKey: "HasLaunchedBefore") {
+            print("This is the first launch")
+            UserDefaults.standard.set(true, forKey: "HasLaunchedBefore")
+            // TODO: Add UserDefaults for saving/restoring map position
+        }
+        
+    }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        checkIfFirstLaunch()
+        
         return true
     }
 

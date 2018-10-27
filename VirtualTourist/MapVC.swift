@@ -19,6 +19,14 @@ class MapVC: UIViewController {
         map.delegate = self
         
         setupGestureRecognizer()
+        
+        // TODO: Add UserDefaults for restoring map position
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        // TODO: Save UserDefaults for map position when view is left
+        
+        
     }
     
     func setupGestureRecognizer() {
