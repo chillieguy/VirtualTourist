@@ -42,8 +42,7 @@
 		FF40DCC5217FC93B0022A73E = {
 			isa = PBXGroup;
 			children = (
-				FF40DCE62181602C0022A73E /* VirtualTourist.xcdatamodeld */,
-				FF40DCD5217FC93B0022A73E /* Main.storyboard */,
+				FF40DCD1217FC93B0022A73E /* AppDelegate.swift */,
 				FF40DCD0217FC93B0022A73E /* VirtualTourist */,
 				FF40DCCF217FC93B0022A73E /* Products */,
 			);
@@ -60,22 +59,55 @@
 		FF40DCD0217FC93B0022A73E /* VirtualTourist */ = {
 			isa = PBXGroup;
 			children = (
-				FF40DCD3217FC93B0022A73E /* MapVC.swift */,
-				FF40DCE42180ABBB0022A73E /* DetailVC.swift */,
-				FF40DCE3217FC9B30022A73E /* Resources */,
+				FF40DCE9218548B40022A73E /* Model */,
+				FF40DCEA218548BF0022A73E /* ViewControllers */,
+				FF40DCEB218548D00022A73E /* Views */,
+				FF40DCEC218548FC0022A73E /* Assets */,
+				FF40DCED218549040022A73E /* Storyboards */,
 				FF40DCDD217FC93D0022A73E /* Info.plist */,
 			);
 			path = VirtualTourist;
 			sourceTree = "<group>";
 		};
-		FF40DCE3217FC9B30022A73E /* Resources */ = {
+		FF40DCE9218548B40022A73E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FF40DCD1217FC93B0022A73E /* AppDelegate.swift */,
-				FF40DCDA217FC93D0022A73E /* LaunchScreen.storyboard */,
+				FF40DCE62181602C0022A73E /* VirtualTourist.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FF40DCEA218548BF0022A73E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF40DCD3217FC93B0022A73E /* MapVC.swift */,
+				FF40DCE42180ABBB0022A73E /* DetailVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FF40DCEB218548D00022A73E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FF40DCEC218548FC0022A73E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
 				FF40DCD8217FC93D0022A73E /* Assets.xcassets */,
 			);
-			path = Resources;
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		FF40DCED218549040022A73E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FF40DCD5217FC93B0022A73E /* Main.storyboard */,
+				FF40DCDA217FC93D0022A73E /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
