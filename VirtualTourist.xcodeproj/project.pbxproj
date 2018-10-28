@@ -14,6 +14,7 @@
 		FF40DCDC217FC93D0022A73E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF40DCDA217FC93D0022A73E /* LaunchScreen.storyboard */; };
 		FF40DCE52180ABBB0022A73E /* PhotoAlbumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40DCE42180ABBB0022A73E /* PhotoAlbumVC.swift */; };
 		FF40DCE82181602C0022A73E /* VirtualTourist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF40DCE62181602C0022A73E /* VirtualTourist.xcdatamodeld */; };
+		FF40DCEF21856EE40022A73E /* FlickrProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40DCEE21856EE40022A73E /* FlickrProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		FF40DCDD217FC93D0022A73E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF40DCE42180ABBB0022A73E /* PhotoAlbumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumVC.swift; sourceTree = "<group>"; };
 		FF40DCE72181602C0022A73E /* VirtualTourist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VirtualTourist.xcdatamodel; sourceTree = "<group>"; };
+		FF40DCEE21856EE40022A73E /* FlickrProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				FF40DCE62181602C0022A73E /* VirtualTourist.xcdatamodeld */,
+				FF40DCEE21856EE40022A73E /* FlickrProvider.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			files = (
 				FF40DCE82181602C0022A73E /* VirtualTourist.xcdatamodeld in Sources */,
 				FF40DCD4217FC93B0022A73E /* MapVC.swift in Sources */,
+				FF40DCEF21856EE40022A73E /* FlickrProvider.swift in Sources */,
 				FF40DCD2217FC93B0022A73E /* AppDelegate.swift in Sources */,
 				FF40DCE52180ABBB0022A73E /* PhotoAlbumVC.swift in Sources */,
 			);
