@@ -44,7 +44,7 @@ class MapVC: UIViewController {
     }
     
     @IBAction func editAction(_ sender: Any) {
-        performSegue(withIdentifier: "detailViewSegue", sender: nil)
+        
     }
     
 

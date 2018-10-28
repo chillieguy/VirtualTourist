@@ -12,7 +12,7 @@
 		FF40DCD7217FC93B0022A73E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF40DCD5217FC93B0022A73E /* Main.storyboard */; };
 		FF40DCD9217FC93D0022A73E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF40DCD8217FC93D0022A73E /* Assets.xcassets */; };
 		FF40DCDC217FC93D0022A73E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF40DCDA217FC93D0022A73E /* LaunchScreen.storyboard */; };
-		FF40DCE52180ABBB0022A73E /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40DCE42180ABBB0022A73E /* DetailVC.swift */; };
+		FF40DCE52180ABBB0022A73E /* PhotoAlbumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40DCE42180ABBB0022A73E /* PhotoAlbumVC.swift */; };
 		FF40DCE82181602C0022A73E /* VirtualTourist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF40DCE62181602C0022A73E /* VirtualTourist.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +24,7 @@
 		FF40DCD8217FC93D0022A73E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF40DCDB217FC93D0022A73E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF40DCDD217FC93D0022A73E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FF40DCE42180ABBB0022A73E /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		FF40DCE42180ABBB0022A73E /* PhotoAlbumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumVC.swift; sourceTree = "<group>"; };
 		FF40DCE72181602C0022A73E /* VirtualTourist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VirtualTourist.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				FF40DCD3217FC93B0022A73E /* MapVC.swift */,
-				FF40DCE42180ABBB0022A73E /* DetailVC.swift */,
+				FF40DCE42180ABBB0022A73E /* PhotoAlbumVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -184,7 +184,7 @@
 				FF40DCE82181602C0022A73E /* VirtualTourist.xcdatamodeld in Sources */,
 				FF40DCD4217FC93B0022A73E /* MapVC.swift in Sources */,
 				FF40DCD2217FC93B0022A73E /* AppDelegate.swift in Sources */,
-				FF40DCE52180ABBB0022A73E /* DetailVC.swift in Sources */,
+				FF40DCE52180ABBB0022A73E /* PhotoAlbumVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  DetailVC.swift
+//  PhotoAlbumVC
 //  VirtualTourist
 //
 //  Created by Chuck Underwood on 10/24/18.
@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class DetailVC: UIViewController {
+class PhotoAlbumVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +20,11 @@ class DetailVC: UIViewController {
 
 }
 
-extension DetailVC: MKMapViewDelegate {
+extension PhotoAlbumVC: MKMapViewDelegate {
     
 }
 
-extension DetailVC: UICollectionViewDelegate,UICollectionViewDataSource {
+extension PhotoAlbumVC: UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 15
     }
