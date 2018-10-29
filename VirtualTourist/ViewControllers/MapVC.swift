@@ -11,6 +11,8 @@ import MapKit
 
 class MapVC: UIViewController {
     
+    let flickrProvider = FlickrProvider()
+    
     @IBOutlet weak var map: MKMapView!
     
     override func viewDidLoad() {
@@ -44,7 +46,7 @@ class MapVC: UIViewController {
     }
     
     @IBAction func editAction(_ sender: Any) {
-        
+        flickrProvider.getImagesFromFlickr()
     }
     
 
