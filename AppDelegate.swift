@@ -13,6 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    let dataController = DataController(modelName: "VirtualTourist")
+    
     // Check if UserDefaults have been set by checking if app has been launched initially
     
     func checkIfFirstLaunch() {
@@ -28,6 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         checkIfFirstLaunch()
+        dataController.load()
+        
+        let navigationController = window?.rootViewController as! UINavigationController
+        let mapVC = navigationController.topViewController as! MapVC
+        mapVC.dataController = dataController
         
         return true
     }

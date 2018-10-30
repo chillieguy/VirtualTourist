@@ -8,19 +8,32 @@
 
 import UIKit
 import MapKit
+import CoreData
 
 class MapVC: UIViewController {
     
+    // The Pin object to populate map
+    var pins: [Pin] = []
+    
+    var dataController: DataController!
+    
     let flickrProvider = FlickrProvider()
+    // Hold coord of a specific annotation
     var coord = CLLocationCoordinate2D()
     
     @IBOutlet weak var map: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         map.delegate = self
         
+        let fetchRequest: NSFetchRequest<Pin> = Pin.fetchRequest()
+        if let result = try? dataController.viewContext.fetch(fetchRequest) {
+            pins = result
+            
+        }
+        
+        populateMapWithPins()
         setupGestureRecognizer()
         
         // TODO: Add UserDefaults for restoring map position
@@ -30,6 +43,14 @@ class MapVC: UIViewController {
         // TODO: Save UserDefaults for map position when view is left
         
         
+    }
+    
+    func populateMapWithPins() {
+        for pin in pins {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: pin.latitude, longitude: pin.longitude)
+            map.addAnnotation(annotation)
+        }
     }
     
     func setupGestureRecognizer() {
@@ -44,10 +65,16 @@ class MapVC: UIViewController {
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
         map.addAnnotation(annotation)
+        
+        let pin = Pin(context: dataController.viewContext)
+        pin.latitude = annotation.coordinate.latitude
+        pin.longitude = annotation.coordinate.longitude
+        try? dataController.viewContext.save()
+        
     }
     
     @IBAction func editAction(_ sender: Any) {
-        flickrProvider.getImagesFromFlickr()
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -63,7 +90,7 @@ class MapVC: UIViewController {
 extension MapVC: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         coord = (view.annotation?.coordinate)!
-        
+        map.deselectAnnotation(view.annotation, animated: true)
 
         performSegue(withIdentifier: "photoAlbumSegue", sender: nil)
     }

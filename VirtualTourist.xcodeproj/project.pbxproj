@@ -15,6 +15,7 @@
 		FF40DCE52180ABBB0022A73E /* PhotoAlbumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40DCE42180ABBB0022A73E /* PhotoAlbumVC.swift */; };
 		FF40DCE82181602C0022A73E /* VirtualTourist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF40DCE62181602C0022A73E /* VirtualTourist.xcdatamodeld */; };
 		FF40DCEF21856EE40022A73E /* FlickrProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40DCEE21856EE40022A73E /* FlickrProvider.swift */; };
+		FF40DCF12188770C0022A73E /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40DCF02188770C0022A73E /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FF40DCE42180ABBB0022A73E /* PhotoAlbumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumVC.swift; sourceTree = "<group>"; };
 		FF40DCE72181602C0022A73E /* VirtualTourist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VirtualTourist.xcdatamodel; sourceTree = "<group>"; };
 		FF40DCEE21856EE40022A73E /* FlickrProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrProvider.swift; sourceTree = "<group>"; };
+		FF40DCF02188770C0022A73E /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			children = (
 				FF40DCE62181602C0022A73E /* VirtualTourist.xcdatamodeld */,
 				FF40DCEE21856EE40022A73E /* FlickrProvider.swift */,
+				FF40DCF02188770C0022A73E /* DataController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF40DCE82181602C0022A73E /* VirtualTourist.xcdatamodeld in Sources */,
+				FF40DCF12188770C0022A73E /* DataController.swift in Sources */,
 				FF40DCD4217FC93B0022A73E /* MapVC.swift in Sources */,
 				FF40DCEF21856EE40022A73E /* FlickrProvider.swift in Sources */,
 				FF40DCD2217FC93B0022A73E /* AppDelegate.swift in Sources */,
