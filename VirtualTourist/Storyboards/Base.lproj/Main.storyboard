@@ -39,17 +39,17 @@
                     </navigationItem>
                     <connections>
                         <outlet property="map" destination="TRQ-R7-pPM" id="awq-Hd-7YT"/>
-                        <segue destination="5ww-i6-xlz" kind="show" identifier="detailViewSegue" id="B3H-4l-MVs"/>
+                        <segue destination="5ww-i6-xlz" kind="show" identifier="photoAlbumSegue" id="B3H-4l-MVs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1012" y="-564"/>
         </scene>
-        <!--DetailVC-->
+        <!--Photo AlbumVC-->
         <scene sceneID="72W-Mb-1oN">
             <objects>
-                <viewController id="5ww-i6-xlz" customClass="DetailVC" customModule="VirtualTourist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="photoAlbumVC" id="5ww-i6-xlz" customClass="PhotoAlbumVC" customModule="VirtualTourist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PSs-Qr-Alz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,6 +94,10 @@
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="map" destination="cIV-t8-wjh" id="29l-LB-WDs"/>
+                        <outlet property="photoCollection" destination="ocJ-Rq-kSL" id="MgG-eM-0sc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qNk-mm-GS1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

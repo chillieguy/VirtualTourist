@@ -12,6 +12,7 @@ import MapKit
 class MapVC: UIViewController {
     
     let flickrProvider = FlickrProvider()
+    var coord = CLLocationCoordinate2D()
     
     @IBOutlet weak var map: MKMapView!
     
@@ -49,10 +50,22 @@ class MapVC: UIViewController {
         flickrProvider.getImagesFromFlickr()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let photoAlbumVC = segue.destination as? PhotoAlbumVC {
+            photoAlbumVC.coord = coord
+    
+        }
+        
+    }
 
 }
 
 extension MapVC: MKMapViewDelegate {
-    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        coord = (view.annotation?.coordinate)!
+        
+
+        performSegue(withIdentifier: "photoAlbumSegue", sender: nil)
+    }
 }
 
