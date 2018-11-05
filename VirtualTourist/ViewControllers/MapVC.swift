@@ -21,7 +21,11 @@ class MapVC: UIViewController {
     // Hold coord of a specific annotation
     var coord = CLLocationCoordinate2D()
     
+    var isEditingPins = false
+    let editView = UIView()
+    
     @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var rightNavButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +37,16 @@ class MapVC: UIViewController {
             
         }
         
+        setupRemovePinButton()
         populateMapWithPins()
         setupGestureRecognizer()
         
         // TODO: Add UserDefaults for restoring map position
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        rightNavButton.title = "Edit"
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -59,22 +69,54 @@ class MapVC: UIViewController {
     }
     
     @objc func handleTap(_ gestureRecognizer: UILongPressGestureRecognizer) {
-        let location = gestureRecognizer.location(in: map)
-        let coordinate = map.convert(location, toCoordinateFrom: map)
+        if !isEditingPins {
+            let location = gestureRecognizer.location(in: map)
+            let coordinate = map.convert(location, toCoordinateFrom: map)
         
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        map.addAnnotation(annotation)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            map.addAnnotation(annotation)
         
-        let pin = Pin(context: dataController.viewContext)
-        pin.latitude = annotation.coordinate.latitude
-        pin.longitude = annotation.coordinate.longitude
-        try? dataController.viewContext.save()
+            let pin = Pin(context: dataController.viewContext)
+            pin.latitude = annotation.coordinate.latitude
+            pin.longitude = annotation.coordinate.longitude
+            try? dataController.viewContext.save()
+        }
+        
+    }
+    
+    func setupRemovePinButton() {
+        view.addSubview(editView)
+        editView.backgroundColor = UIColor.white
+        editView.translatesAutoresizingMaskIntoConstraints = false
+        editView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        editView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        editView.topAnchor.constraint(equalTo: map.bottomAnchor).isActive = true
+        editView.heightAnchor.constraint(equalToConstant: 75).isActive = true
+        
+        let editTextLabel = UILabel()
+        editView.addSubview(editTextLabel)
+        editTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        editTextLabel.centerXAnchor.constraint(equalTo: editView.centerXAnchor).isActive = true
+        editTextLabel.centerYAnchor.constraint(equalTo: editView.centerYAnchor).isActive = true
+        editTextLabel.widthAnchor.constraint(equalTo: editView.widthAnchor).isActive = true
+        editTextLabel.heightAnchor.constraint(equalTo: editView.heightAnchor, multiplier: 0.5).isActive = true
+        editTextLabel.text = "TAP PIN TO DELETE"
+        editTextLabel.textAlignment = .center
+        editTextLabel.font = UIFont(name: "Avenir-BlackOblique", size: 32)
         
     }
     
     @IBAction func editAction(_ sender: Any) {
-        
+        if !isEditingPins {
+            rightNavButton.title = "Done"
+            isEditingPins = true
+            
+        } else {
+            rightNavButton.title = "Edit"
+            isEditingPins = false
+            
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -89,10 +131,20 @@ class MapVC: UIViewController {
 
 extension MapVC: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        coord = (view.annotation?.coordinate)!
-        map.deselectAnnotation(view.annotation, animated: true)
-
-        performSegue(withIdentifier: "photoAlbumSegue", sender: nil)
+        
+        if isEditingPins {
+            guard let pin = view.annotation else { return }
+            
+            // TODO: Implement removing pin
+            print("Removing pin functionality not implemented for \(pin)")
+            
+        } else {
+            coord = (view.annotation?.coordinate)!
+            map.deselectAnnotation(view.annotation, animated: true)
+            
+            performSegue(withIdentifier: "photoAlbumSegue", sender: nil)
+        }
+        
     }
 }
 
