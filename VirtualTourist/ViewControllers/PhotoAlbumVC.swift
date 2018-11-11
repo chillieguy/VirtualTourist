@@ -8,10 +8,15 @@
 
 import UIKit
 import MapKit
+import CoreData
 
 class PhotoAlbumVC: UIViewController {
 
     var coord = CLLocationCoordinate2D()
+    
+    var dataController: DataController!
+    
+    var pin: Pin!
     
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var photoCollection: UICollectionView!
@@ -20,6 +25,20 @@ class PhotoAlbumVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+//        let fetchRequest: NSFetchRequest<Pin> = Pin.fetchRequest()
+//        let predicate = NSPredicate(format: "pin == %@", pin)
+//        fetchRequest.predicate = predicate
+//
+//        if let result = try? dataController.viewContext.fetch(fetchRequest) {
+//            pin = result[0]
+//            print(pin)
+//        }
+        
+        setupMapView()
+    }
+    
+    func setupMapView() {
         var region = MKCoordinateRegion(center: coord, span: MKCoordinateSpan(latitudeDelta: 5.0, longitudeDelta: 5.0))
         region.center = coord
         map.setRegion(region, animated: true)
@@ -34,7 +53,6 @@ class PhotoAlbumVC: UIViewController {
         map.delegate = self
         photoCollection.delegate = self
         photoCollection.dataSource = self
-        
     }
     
 

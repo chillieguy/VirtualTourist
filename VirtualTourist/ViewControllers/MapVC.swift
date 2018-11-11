@@ -14,6 +14,7 @@ class MapVC: UIViewController {
     
     // The Pin object to populate map
     var pins: [Pin] = []
+    var pin: Pin!
     
     var dataController: DataController!
     
@@ -41,7 +42,9 @@ class MapVC: UIViewController {
         populateMapWithPins()
         setupGestureRecognizer()
         
+        print("Pin count: \(fetchAllPins().count)")
         // TODO: Add UserDefaults for restoring map position
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,6 +59,7 @@ class MapVC: UIViewController {
     }
     
     func populateMapWithPins() {
+        map.removeAnnotations(map.annotations)
         for pin in pins {
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: pin.latitude, longitude: pin.longitude)
@@ -69,18 +73,20 @@ class MapVC: UIViewController {
     }
     
     @objc func handleTap(_ gestureRecognizer: UILongPressGestureRecognizer) {
-        if !isEditingPins {
+        if !isEditingPins && gestureRecognizer.state == UIGestureRecognizer.State.began {
             let location = gestureRecognizer.location(in: map)
             let coordinate = map.convert(location, toCoordinateFrom: map)
         
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate
             map.addAnnotation(annotation)
-        
+            
+            
             let pin = Pin(context: dataController.viewContext)
             pin.latitude = annotation.coordinate.latitude
             pin.longitude = annotation.coordinate.longitude
             try? dataController.viewContext.save()
+            
         }
         
     }
@@ -120,9 +126,13 @@ class MapVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
         if let photoAlbumVC = segue.destination as? PhotoAlbumVC {
+            
             photoAlbumVC.coord = coord
-    
+            photoAlbumVC.dataController = dataController
+            
         }
         
     }
@@ -131,12 +141,15 @@ class MapVC: UIViewController {
 
 extension MapVC: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let annotation = view.annotation else { return }
+        let pin = searchPin(annotation: annotation)
         
         if isEditingPins {
-            guard let pin = view.annotation else { return }
+            mapView.removeAnnotation(annotation)
             
-            // TODO: Implement removing pin
-            print("Removing pin functionality not implemented for \(pin)")
+            dataController.viewContext.delete(pin)
+            try? dataController.viewContext.save()
+            
             
         } else {
             coord = (view.annotation?.coordinate)!
@@ -146,5 +159,20 @@ extension MapVC: MKMapViewDelegate {
         }
         
     }
+}
+
+extension MapVC {
+    
+    func fetchAllPins() -> [Pin] {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Pin")
+        return try! dataController.viewContext.fetch(fetchRequest) as! [Pin]
+    }
+    
+    func searchPin(annotation: MKAnnotation) -> Pin {
+        let returnPin = fetchAllPins().filter { $0.latitude == annotation.coordinate.latitude && $0.longitude == annotation.coordinate.longitude}.first!
+        
+        return returnPin
+    }
+    
 }
 

@@ -30,3 +30,7 @@ class DataController {
     }
     
 }
+
+extension DataController {
+    
+}
