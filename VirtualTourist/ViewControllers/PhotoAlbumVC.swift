@@ -25,15 +25,11 @@ class PhotoAlbumVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        photoCollection.delegate = self
+        photoCollection.dataSource = self
         
-//        let fetchRequest: NSFetchRequest<Pin> = Pin.fetchRequest()
-//        let predicate = NSPredicate(format: "pin == %@", pin)
-//        fetchRequest.predicate = predicate
-//
-//        if let result = try? dataController.viewContext.fetch(fetchRequest) {
-//            pin = result[0]
-//            print(pin)
-//        }
+        print(pin)
+
         
         setupMapView()
     }
@@ -62,18 +58,35 @@ extension PhotoAlbumVC: MKMapViewDelegate {
     
 }
 
-extension PhotoAlbumVC: UICollectionViewDelegate,UICollectionViewDataSource {
+extension PhotoAlbumVC: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return 21
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = UIColor.green
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PhotoCollectionViewCell
+        cell.photoCollectionViewCellImage.image = #imageLiteral(resourceName: "loading")
+        cell.backgroundColor = UIColor.blue
+        cell.photoCollectionViewCellActivityIndicator.isHidden = true
         
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: photoCollection.bounds.size.width / 3, height: photoCollection.bounds.size.width / 3)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
     
 }
 

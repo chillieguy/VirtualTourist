@@ -17,6 +17,7 @@
 		FF40DCEF21856EE40022A73E /* FlickrProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40DCEE21856EE40022A73E /* FlickrProvider.swift */; };
 		FF40DCF12188770C0022A73E /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40DCF02188770C0022A73E /* DataController.swift */; };
 		FF61626821932CE400C78739 /* Pin+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF61626721932CE400C78739 /* Pin+Extensions.swift */; };
+		FF7C71D32199C6A00033DE2D /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C71D22199C6A00033DE2D /* PhotoCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		FF40DCEE21856EE40022A73E /* FlickrProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrProvider.swift; sourceTree = "<group>"; };
 		FF40DCF02188770C0022A73E /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		FF61626721932CE400C78739 /* Pin+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin+Extensions.swift"; sourceTree = "<group>"; };
+		FF7C71D22199C6A00033DE2D /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				FF40DCD3217FC93B0022A73E /* MapVC.swift */,
 				FF40DCE42180ABBB0022A73E /* PhotoAlbumVC.swift */,
+				FF7C71D22199C6A00033DE2D /* PhotoCollectionViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF40DCE82181602C0022A73E /* VirtualTourist.xcdatamodeld in Sources */,
+				FF7C71D32199C6A00033DE2D /* PhotoCollectionViewCell.swift in Sources */,
 				FF40DCF12188770C0022A73E /* DataController.swift in Sources */,
 				FF61626821932CE400C78739 /* Pin+Extensions.swift in Sources */,
 				FF40DCD4217FC93B0022A73E /* MapVC.swift in Sources */,

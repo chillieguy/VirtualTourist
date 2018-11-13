@@ -14,7 +14,7 @@ class MapVC: UIViewController {
     
     // The Pin object to populate map
     var pins: [Pin] = []
-    var pin: Pin!
+    var pinToPass: Pin!
     
     var dataController: DataController!
     
@@ -129,7 +129,7 @@ class MapVC: UIViewController {
         
         
         if let photoAlbumVC = segue.destination as? PhotoAlbumVC {
-            
+            photoAlbumVC.pin = pinToPass
             photoAlbumVC.coord = coord
             photoAlbumVC.dataController = dataController
             
@@ -154,7 +154,7 @@ extension MapVC: MKMapViewDelegate {
         } else {
             coord = (view.annotation?.coordinate)!
             map.deselectAnnotation(view.annotation, animated: true)
-            
+            pinToPass = pin
             performSegue(withIdentifier: "photoAlbumSegue", sender: nil)
         }
         
