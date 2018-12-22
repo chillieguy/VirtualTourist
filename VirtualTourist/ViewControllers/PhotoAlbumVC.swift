@@ -29,7 +29,10 @@ class PhotoAlbumVC: UIViewController {
         photoCollection.dataSource = self
         
         print(pin)
-
+        let fp = FlickrProvider()
+        fp.getImagesFromFlickr { (urls) -> () in
+            print(urls)
+        }
         
         setupMapView()
     }

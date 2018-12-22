@@ -39,7 +39,7 @@ struct FlickrProvider {
         
         let session = URLSession.shared
         let request = URLRequest(url: flickrURLFromParameters(methodParameters as [String : AnyObject]))
-    
+        
         let task = session.dataTask(with: request) { (data, response, error) in
             // If error print error message and return
             if error != nil {
@@ -98,8 +98,8 @@ struct FlickrProvider {
         task.resume()
     }
     
-    func getImagesFromFlickr() {
-        
+    func getImagesFromFlickr(completion: @escaping (_ arrayOfImageUrls: [URL]) -> ()) {
+        var arrayOfUrls: [URL] = []
         var page = 0
         getFlickrNumberOfPagesByLatLon { (pageNumber) in
             page = pageNumber
@@ -167,40 +167,38 @@ struct FlickrProvider {
                 return
             }
             
+            
+            
             if photosArray.count == 0 {
                 displayError("No Photos Found. Search Again.")
                 return
             } else {
-                let randomPhotoIndex = Int(arc4random_uniform(UInt32(photosArray.count)))
-                let photoDictionary = photosArray[randomPhotoIndex] as [String: AnyObject]
-                let photoTitle = photoDictionary[Constants.ResponseKeys.Title] as? String
                 
-                /* GUARD: Does our photo have a key for 'url_m'? */
-                guard let imageUrlString = photoDictionary[Constants.ResponseKeys.MediumURL] as? String else {
-                    displayError("Cannot find key '\(Constants.ResponseKeys.MediumURL)' in \(photoDictionary)")
-                    return
-                }
-                
-                // if an image exists at the url, set the image and title
-                let imageURL = URL(string: imageUrlString)
-                if let imageData = try? Data(contentsOf: imageURL!) {
+                for photo in photosArray {
+                        /* GUARD: Does our photo have a key for 'url_m'? */
+                    guard let imageUrlString = photo[Constants.ResponseKeys.MediumURL] as? String else {
+                        displayError("Cannot find key '\(Constants.ResponseKeys.MediumURL)' in \(photo)")
+                        return
+                    }
+                    // if an image exists at the url, set the image and title
+                    guard let imageURL = URL(string: imageUrlString) else { return }
+                    arrayOfUrls.append(imageURL)
                     
-                } else {
-                    displayError("Image does not exist at \(String(describing: imageURL))")
                 }
             }
+            
+            completion(arrayOfUrls)
         }
         
         // start the task!
         task.resume()
-        
     }
     
     // Mark: Private functions
     
     private func flickrURLFromParameters(_ parameters: [String:AnyObject]) -> URL {
         var components = URLComponents()
-
+        
         components.scheme = Constants.API.Scheme
         components.host = Constants.API.Host
         components.path = Constants.API.Path
