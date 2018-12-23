@@ -11,7 +11,5 @@ import UIKit
 class PhotoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var photoCollectionViewCellImage: UIImageView!
-    @IBOutlet weak var photoCollectionViewCellActivityIndicator: UIActivityIndicatorView!
-    
-    
+
 }
