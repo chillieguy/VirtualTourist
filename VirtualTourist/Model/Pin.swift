@@ -9,22 +9,17 @@
 import Foundation
 import CoreData
 
-extension Pin {
+@objc(Pin)
+public class Pin: NSManagedObject {
     
-    convenience init(latitude: Double, context: NSManagedObjectContext) {
-        let entity = NSEntityDescription.entity(forEntityName: "Pin", in: context)!
-        self.init(entity: entity, insertInto: context)
-        
-        self.latitude = latitude
-        
-    }
-    
-    convenience init(longitude: Double, context: NSManagedObjectContext) {
-        let entity = NSEntityDescription.entity(forEntityName: "Pin", in: context)!
-        self.init(entity: entity, insertInto: context)
-        
-        self.longitude = longitude
-        
+    convenience init(lat: Double, lon: Double, context: NSManagedObjectContext) {
+        if let ent = NSEntityDescription.entity(forEntityName: "Pin", in: context) {
+            self.init(entity: ent, insertInto: context)
+            self.latitude = lat
+            self.longitude = lon
+        } else {
+            fatalError("Unable to find \(context)!")
+        }
     }
 
 }
