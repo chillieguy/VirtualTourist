@@ -10,12 +10,7 @@ import Foundation
 
 class FlickrProvider: NSObject {
 
-    class func sharedInstance() -> FlickrProvider {
-        struct Singleton {
-            static var sharedInstance = FlickrProvider()
-        }
-        return Singleton.sharedInstance
-    }
+    static let sharedInstance = FlickrProvider()
     
     func getPhotosforLocation(_ latitude: Double, _ longitude: Double,_ page: Int, _ completion: @escaping (_ success: Bool, _ data: [[String: Any]]? ) -> Void) {
         

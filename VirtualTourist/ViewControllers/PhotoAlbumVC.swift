@@ -86,7 +86,7 @@ class PhotoAlbumVC: CoreDataViewController {
         retrievingPhotos = true
         
         let coord = annotation.coordinate
-        FlickrProvider.sharedInstance().getPhotosforLocation(coord.latitude, coord.longitude, pageNum, { (success, photos) in
+        FlickrProvider.sharedInstance.getPhotosforLocation(coord.latitude, coord.longitude, pageNum, { (success, photos) in
             func showAlert(_ errorString: String = "Could not connect to network."){
                 let alert = UIAlertController(title: "Error", message:
                     errorString, preferredStyle: UIAlertController.Style.alert)

@@ -96,7 +96,7 @@ extension MapVC: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "PhotoAlbumVC") as! PhotoAlbumVC
+        let vc = storyboard?.instantiateViewController(withIdentifier: "PhotoAlbumView") as! PhotoAlbumVC
         vc.annotation = view.annotation
         vc.pin = getLocation((view.annotation?.coordinate)!)
         
