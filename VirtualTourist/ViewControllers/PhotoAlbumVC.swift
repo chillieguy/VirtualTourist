@@ -66,8 +66,8 @@ class PhotoAlbumVC: CoreDataViewController {
             let url = URL(string: urlString!)
             
             if let imageData = try? Data(contentsOf: url!) {
-                let p = Photo(data: imageData as NSData, pin: pin, context: (fetchedResultsController?.managedObjectContext)!)
-                pin.addToPhotos(p)
+                let photo = Photo(data: imageData as NSData, pin: pin, context: (fetchedResultsController?.managedObjectContext)!)
+                pin.addToPhotos(photo)
             } else {
                 print("No image.")
             }
@@ -75,7 +75,8 @@ class PhotoAlbumVC: CoreDataViewController {
         
         retrievingPhotos = false
         DispatchQueue.main.async {
-            (UIApplication.shared.delegate as! AppDelegate).stack.save()
+            let sharedDelegate = UIApplication.shared.delegate as! AppDelegate
+            sharedDelegate.stack.save()
             self.collection.reloadData()
             self.enableUI(true)
         }
@@ -87,20 +88,14 @@ class PhotoAlbumVC: CoreDataViewController {
         
         let coord = annotation.coordinate
         FlickrProvider.sharedInstance.getPhotosforLocation(coord.latitude, coord.longitude, pageNum, { (success, photos) in
-            func showAlert(_ errorString: String = "Could not connect to network."){
-                let alert = UIAlertController(title: "Error", message:
-                    errorString, preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default,handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
             
             guard success else {
-                showAlert()
+                self.showAlert()
                 return
             }
             
             if photos?.count == 0 {
-                showAlert("Ruh Roh, no photos.")
+                self.showAlert("Ruh Roh, no photos.")
                 return
             }
             
@@ -153,11 +148,13 @@ extension PhotoAlbumVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PhotoCollectionViewCell
         
+        cell.photoCollectionViewCellImage.image = UIImage(named: "loading")
+        
         DispatchQueue.main.async {
             if !self.retrievingPhotos {
                 cell.photoCollectionViewCellImage.image = UIImage(data: (self.pin.photos?.allObjects[indexPath.row] as! Photo).data! as Data)
             } else {
-                cell.photoCollectionViewCellImage.image = #imageLiteral(resourceName: "loading")
+                cell.photoCollectionViewCellImage.image = UIImage(named: "loading")
             }
         }
         

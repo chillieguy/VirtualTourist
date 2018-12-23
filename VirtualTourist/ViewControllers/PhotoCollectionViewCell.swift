@@ -11,5 +11,11 @@ import UIKit
 class PhotoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var photoCollectionViewCellImage: UIImageView!
-
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        backgroundColor = UIColor.gray
+    }
+    
 }
