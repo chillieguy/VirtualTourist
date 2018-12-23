@@ -62,37 +62,6 @@ struct DataController {
         }
     }
     
-    func addStoreCoordinator(_ storeType: String, configuration: String?, storeURL: URL, options : [NSObject:AnyObject]?) throws {
-        try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbURL, options: nil)
-    }
-    
-}
-
-internal extension DataController  {
-    
-    func dropAllData() throws {
-
-        try coordinator.destroyPersistentStore(at: dbURL, ofType: NSSQLiteStoreType , options: nil)
-        try addStoreCoordinator(NSSQLiteStoreType, configuration: nil, storeURL: dbURL, options: nil)
-    }
-}
-
-extension DataController {
-    
-    typealias BackgroundBatch = (_ workerContext: NSManagedObjectContext) -> ()
-    
-    func performBackgroundBatchOperation(_ batch: @escaping BackgroundBatch) {
-        
-        backgroundContext.perform() {
-            
-            batch(self.backgroundContext)
-            do {
-                try self.backgroundContext.save()
-            } catch {
-                fatalError("Error while saving backgroundContext: \(error)")
-            }
-        }
-    }
 }
 
 extension DataController {
@@ -117,6 +86,10 @@ extension DataController {
                 }
             }
         }
+    }
+    
+    func addStoreCoordinator(_ storeType: String, configuration: String?, storeURL: URL, options : [NSObject:AnyObject]?) throws {
+        try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbURL, options: nil)
     }
 }
 
