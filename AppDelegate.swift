@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let stack = DataController(modelName: "VirtualTourist")!
     
     let dataController = DataController(modelName: "VirtualTourist")
     
@@ -21,16 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !UserDefaults.standard.bool(forKey: "HasLaunchedBefore") {
             print("This is the first launch")
             UserDefaults.standard.set(true, forKey: "HasLaunchedBefore")
-            // TODO: Add UserDefaults for saving/restoring map position
+            
         }
-        
     }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         checkIfFirstLaunch()
-        dataController.load()
         
         let navigationController = window?.rootViewController as! UINavigationController
         let mapVC = navigationController.topViewController as! MapVC
